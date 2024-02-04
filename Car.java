@@ -10,6 +10,9 @@ abstract class Car implements Movable{
 
     //movement saker
     protected int direction;
+
+
+
     protected Point2D.Double position;
 
 
@@ -24,6 +27,14 @@ abstract class Car implements Movable{
         // movement saker
         this.direction = 1;
         this.position = new Point2D.Double(0,0);
+    }
+
+    public Point2D.Double getPosition() {
+        return position;
+    }
+
+    public void setPosition(Point2D.Double position) {
+        this.position = position;
     }
 
     public int getNrDoors(){
