@@ -7,7 +7,7 @@ abstract class Truck extends Car{
     protected Boolean rampOpen;
 
     public Truck(int nrDoor, double enginePower, Color color, String modelName, boolean hasRamp){
-        super(nrDoor, enginePower, color, modelName);
+        super(nrDoor, enginePower, color, modelName, "pics/Scania.jpg");
         this.hasRamp = hasRamp;
         this.rampOpen = false;
     }

@@ -33,6 +33,7 @@ public class CarController {
         cc.cars.add(new Saab95());
 
 
+
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
 
@@ -47,15 +48,17 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
 
-                if(car.getPosition().y > 800-240){ // hardcoded values for viewport
-                    car.direction = 3;
-                }
-                if(car.getPosition().y < 0){
-                    car.direction = 1;
-                }
+                frame.drawPanel.setCar(car);
                 car.move();
                 int x = (int) Math.round(car.getPosition().getX());
                 int y = (int) Math.round(car.getPosition().getY());
+
+                if(y >= frame.drawPanel.getHeight() - 60 || y < 0){ // hardcoded values for car dimenson
+                    car.turnLeft();
+                    car.turnLeft();
+                }
+
+
                 frame.drawPanel.moveit(x, y);
                 // repaint() // calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
