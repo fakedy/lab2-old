@@ -10,7 +10,7 @@ public class GraphicsComponent {
 
     BufferedImage graphics;
 
-    Point position = new Point(0,0);
+    Point position = new Point(0,0); // graphics position
 
     GraphicsComponent(Car owner, String graphics){
         this.owner = owner;
@@ -22,7 +22,7 @@ public class GraphicsComponent {
         BufferedImage image = null;
 
         try {
-            image = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
+            image = ImageIO.read(DrawPanel.class.getResourceAsStream(path));
 
         } catch (IOException ex)
         {
@@ -34,7 +34,7 @@ public class GraphicsComponent {
 
 
     void draw(Graphics g){
-        g.drawImage(graphics, (int)owner.getPosition().x, (int)owner.getPosition().y, null); // see javadoc for more info on the parameters
+        g.drawImage(graphics, (int)owner.getPosition().x + position.x, (int)owner.getPosition().y + position.y, null); // see javadoc for more info on the parameters
 
     }
 

@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -10,27 +11,15 @@ import javax.swing.*;
 public class DrawPanel extends JPanel{
 
     // Just a single image, TODO: Generalize
-    BufferedImage volvoImage;
 
-
-    // To keep track of a single car's position
-    Point volvoPoint = new Point();
-
-    Car activeCar;
-
+    ArrayList<Car> cars = new ArrayList<>();
 
     BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300,300);
 
     // TODO: Make this general for all cars
-    void moveit(int x, int y){
-        volvoPoint.x = x;
-        volvoPoint.y = y;
-    }
 
-    void setCar(Car car){
-        this.activeCar = car;
-    }
+
 
 
 
@@ -55,7 +44,12 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        activeCar.graphicsComponent.draw(g);
+        if(cars != null) {
+            for (Car car : cars) {
+                car.graphicsComponent.draw(g);
+            }
+        }
+
         g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null);
 
 
