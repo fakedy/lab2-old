@@ -16,8 +16,8 @@ public class workshopTest {
     public void init(){
         car1 = new Volvo240();
         car2 = new Saab95();
-        shop1 = new workshop<>(5);
-        shop2 = new workshop<>(5);
+        shop1 = new workshop<>(5, "");
+        shop2 = new workshop<>(5, "");
     }
 
     @Test

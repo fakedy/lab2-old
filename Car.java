@@ -1,8 +1,7 @@
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.awt.image.BufferedImage;
 
-abstract class Car implements Movable{
+abstract class Car implements Movable, HasPosition {
     private final int nrDoors; // Number of doors on the car
     protected final double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -13,7 +12,7 @@ abstract class Car implements Movable{
     protected int direction;
 
 
-    protected GraphicsComponent graphicsComponent;
+    protected GraphicsComponent<Car> graphicsComponent;
     protected Point2D.Double position;
 
 

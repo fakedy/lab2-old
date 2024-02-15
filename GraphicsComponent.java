@@ -3,19 +3,20 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class GraphicsComponent {
+public class GraphicsComponent<T extends HasPosition> {
 
 
-    Car owner;
+    T owner;
 
     BufferedImage graphics;
 
     Point position = new Point(0,0); // graphics position
 
-    GraphicsComponent(Car owner, String graphics){
+    GraphicsComponent(T owner, String graphics){
         this.owner = owner;
         this.graphics = bufferImage(graphics);
     }
+
 
 
     BufferedImage bufferImage(String path){

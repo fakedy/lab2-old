@@ -1,4 +1,3 @@
-import javax.imageio.ImageIO;
 import java.awt.*;
 
 public class Volvo240 extends Car{

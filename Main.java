@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -15,7 +15,6 @@ public class Main {
     public static void main(String[] args) {
 
         Application app = new Application();
-        app.init();
 
     }
 
@@ -29,26 +28,25 @@ public class Main {
         // each step between delays.
 
         // The frame that represents this instance View of the MVC pattern
-        CarView frame;
+        private CarView frame;
 
         private Timer timer = new Timer(delay, new TimerListener());
         // A list of cars, modify if needed
 
-        static int WINDOW_WIDTH;
-        static int WINDOW_HEIGHT;
+        public static int WINDOW_WIDTH;
+        public static int WINDOW_HEIGHT;
 
 
-        CarController cc;
-        private void init(){
+        private CarController cc;
+        public Application(){
             cc = new CarController();
 
             cc.cars.add(new Volvo240());
             cc.cars.add(new Saab95());
 
-
             // Start a new view and send a reference of self
             frame = new CarView("CarSim 1.0", cc);
-            WINDOW_HEIGHT = frame.getHeight();
+            WINDOW_HEIGHT = frame.getHeight() - 240;
             WINDOW_WIDTH = frame.getWidth();
             timer.start();
         }
@@ -67,10 +65,4 @@ public class Main {
             }
         }
     }
-
-
-
-
-
-
 }
